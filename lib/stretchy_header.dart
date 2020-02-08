@@ -43,6 +43,7 @@ class StretchyHeader extends StretchyHeaderBase {
   StretchyHeader.singleChild({
     Key key,
     @required HeaderData headerData,
+    EdgeInsets padding,
     @required Widget child,
   })  : assert(headerData != null),
         assert(child != null),
@@ -52,7 +53,7 @@ class StretchyHeader extends StretchyHeaderBase {
           listBuilder: (context, controller, padding, physics, topWidget) {
             return ListView(
               controller: controller,
-              padding: EdgeInsets.zero,
+              padding: padding,
               physics: physics,
               children: <Widget>[
                 topWidget,
@@ -65,6 +66,7 @@ class StretchyHeader extends StretchyHeaderBase {
   StretchyHeader.listView({
     Key key,
     @required HeaderData headerData,
+    EdgeInsets padding,
     @required List<Widget> children,
   })  : assert(headerData != null),
         assert(children != null),
@@ -74,7 +76,7 @@ class StretchyHeader extends StretchyHeaderBase {
           listBuilder: (context, controller, padding, physics, topWidget) {
             return ListView(
               controller: controller,
-              padding: EdgeInsets.zero,
+              padding: padding,
               physics: physics,
               children: <Widget>[topWidget].followedBy(children).toList(),
             );
@@ -84,6 +86,7 @@ class StretchyHeader extends StretchyHeaderBase {
   StretchyHeader.listViewBuilder({
     Key key,
     @required HeaderData headerData,
+    EdgeInsets padding,
     @required IndexedWidgetBuilder itemBuilder,
     int itemCount,
   })  : assert(headerData != null),
@@ -94,7 +97,7 @@ class StretchyHeader extends StretchyHeaderBase {
           listBuilder: (context, controller, padding, physics, topWidget) {
             return ListView.builder(
               controller: controller,
-              padding: EdgeInsets.zero,
+              padding: padding,
               physics: physics,
               itemCount: itemCount == null ? null : itemCount + 1,
               itemBuilder: (context, index) {
