@@ -50,7 +50,7 @@ class StretchyHeader extends StretchyHeaderBase {
         super(
           key: key,
           headerData: headerData,
-          listBuilder: (context, controller, padding, physics, topWidget) {
+          listBuilder: (context, controller, physics, topWidget) {
             return ListView(
               controller: controller,
               padding: padding,
@@ -73,7 +73,7 @@ class StretchyHeader extends StretchyHeaderBase {
         super(
           key: key,
           headerData: headerData,
-          listBuilder: (context, controller, padding, physics, topWidget) {
+          listBuilder: (context, controller, physics, topWidget) {
             return ListView(
               controller: controller,
               padding: padding,
@@ -94,7 +94,7 @@ class StretchyHeader extends StretchyHeaderBase {
         super(
           key: key,
           headerData: headerData,
-          listBuilder: (context, controller, padding, physics, topWidget) {
+          listBuilder: (context, controller, physics, topWidget) {
             return ListView.builder(
               controller: controller,
               padding: padding,
@@ -201,7 +201,6 @@ class StretchyHeaderBase extends StatefulWidget {
 typedef HeaderListViewBuilder = ListView Function(
   BuildContext context,
   ScrollController controller,
-  EdgeInsets padding,
   ScrollPhysics physics,
   Widget topWidget,
 );
@@ -293,7 +292,6 @@ class _StretchyHeaderBaseState extends State<StretchyHeaderBase> {
             child: widget.listBuilder(
               context,
               _scrollController,
-              EdgeInsets.zero,
               BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
               SizedBox(
                 height: _headerSize,
